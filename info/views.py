@@ -2,10 +2,13 @@ from django.shortcuts import render, redirect
 from .forms import ContactForm
 from django.contrib import messages
 from .models import Notice
+from lms.models import Course
 
 # Create your views here.
 def homeview(request):
-    return render(request, 'info/home.html')
+    courses = Course.objects.all().order_by('-id')
+    context = {'courses': courses}
+    return render(request, 'info/home.html', context)
 
 def noticeview(request):
     return render(request, 'info/notice.html')

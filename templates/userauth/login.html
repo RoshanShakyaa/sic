@@ -1,0 +1,33 @@
+{%extends '../base.html'%}
+{%load django_bootstrap5%}
+{%block title %} Login | SIC {%endblock%}
+
+
+{%block body%} 
+<style>
+    .form-text{
+        display: none;
+    }
+
+</style>
+
+<div class="container py-4">
+    
+    <div class="col-lg-4 mx-auto border text-center rounded-3 shadow-sm px-3 p-4 mt-4">
+     <h3 class="d-flex align-items-center justify-content-center ">
+         <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-graduation-cap"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg> &nbsp;
+         Moodle Login</h3> <hr class="mb-4">
+     <form method="post">
+         {% csrf_token %}
+         <table class="table mb-4">
+             {% bootstrap_form form layout="floating" %}
+ 
+         </table>
+         <button class="btn  btn-primary col-5" type="submit">Login</button> <hr>
+         <p href="">Haven't registered yet? <a href="/register">Register here</a>.</p>
+     </form>
+    </div>
+ 
+     
+ </div>
+{%endblock%}

@@ -1,0 +1,33 @@
+{%extends '../base.html'%}
+{%load static%}
+{% load django_bootstrap5 %}
+{% block title %}Contact {%endblock%}
+{% block body %} 
+<div class="container py-4 my-4">
+
+    <div class="row col-lg-9 mx-auto border rounded-3 ">
+        <div class="col p-0 m-0">
+            <img src="https://images.unsplash.com/photo-1579762715118-a6f1d4b934f1?q=80&w=1368&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="image" class="img-fluid rounded-start-3">
+        </div>
+
+        <div class="col-lg-7 px-4">
+            <h3 class="py-4">Contact Us</h3>
+            <form method="post">
+                {% csrf_token %}
+                <table class="table mb-4">
+                    {% bootstrap_form form layout="floating" %}
+                </table>
+                <div class="d-flex justify-content-end">
+                    <button class="btn  btn-primary col-12" type="submit">Send</button>
+                </div>
+                <div class="d-flex my-2 justify-content-center">
+                    <a href="tel: +977-9803621141" class="btn  btn-success col-12" type="submit">Call Us Now</a>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+</div>
+
+{%endblock%}
